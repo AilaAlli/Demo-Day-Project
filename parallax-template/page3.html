@@ -11,13 +11,56 @@
 </head>
 
 <body>
+        <nav class="white" role="navigation">
+                <div class="nav-wrapper container">
+                  <a id="logo-container" href="#" class="brand-logo">MY HIPPY FRIEND</a>
+                  <ul class="right hide-on-med-and-down">
+                    <li><a href="#">Inhale...And...Exhale...</a></li> 
+                  </ul>
+                </div>
+              </nav>
 
     <h1 class="center cursive">RELAX AND BE MINDFUL OF YOUR BREATHING</h1>
 
     <div style="display: flex; justify-content: center;"> <img src="https://picserio.com/data/out/187/relaxing-hd-wallpapers_4029301.jpg" width="500" height="300"></div>
-
-    <button class="button">Click here!</button>
-    
+    <div class="center marginTop">
+        <button class="button center" onclick="timer()">Click here!</button>
+    </div>
+    <div class="center" id="timer">
+    </div>
 
 </body>
+
+<script>
+    function wait(ms, el) {
+        var start = Date.now();
+        now = start;
+        while (now - start < ms) {
+            now = Date.now()
+        }
+        currentValue = parseInt(document.getElementById("timer").innerHTML)
+        console.log('current value displayed:', currentValue)
+        el.innerHTML = currentValue - 1
+    }
+
+    function timer() {
+        var seconds = 60
+        el = document.getElementById("timer")
+        document.getElementById("timer").innerHTML = seconds
+        console.log('hi Aila')
+
+        const interval = setInterval(function changeTime() {
+            const currentValue = parseInt(el.innerHTML)
+
+            if (currentValue > 0) {
+                el.innerHTML = currentValue - 1
+            } else {
+                clearInterval(interval)
+                alert('Good job, keep breathing!')
+            }
+        }, 1000)
+    }
+
+
+</script>
 </html>
