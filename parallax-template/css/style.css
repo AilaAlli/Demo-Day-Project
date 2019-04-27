@@ -82,3 +82,7 @@ footer.page-footer {
   width: 100%;
   text-align: center;
 }
+
+.nav-wrapper.container {
+  text-align: left;
+}
